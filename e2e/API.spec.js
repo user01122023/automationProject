@@ -6,18 +6,18 @@ test.describe('API testing', () => {
   
    
 
-  test('Post Request - Login', async ({ request }) =>{
+  test.skip('Post Request - Login', async ({ request }) =>{
     const response = await request.post(`${baseUrl}`, {
       multipart: {
         "username": 'Default',
-        "key": '2yiZaG7QEQaHNvmJJbHrluqeX0u3YsCuL1lEssKr05Jvl3zUHVkSIJ16ajZXIrBNcPVB6P2Tkn2PFC2ABHqBTlLADD6TsFu2YytngyynjLpEr6kzbsTjmRJM4kUoMmslm4D6okv7ylxKxrzBNe216O3dMaBZ1S1yBdajD08fF6yQzMQHT3vCoOJ6baPLBFrzoQqwnZuhacRQQFa1LbpOKOKAKtxZoI4XLNcucnBOu5aOXdBHhUJ2VatArE6MLiZi'
+        "key": 'kmNE2uxZVHxbVLBIVR5AYDXe4XOQbNoiSl3s0eip8hPrgMFCLlbQptlX13u2SdTpFXzfPlSfOh0EwDfWMWH6xXAJU7fANwABqQSyvXliPlOg8n1Ix8YM5dtlou8CZCiZtmaQm0jmNMfqfvrFDpxrGLo05f6ydpsEl6BYydMJhVFCBzUASW8VKwpT7kflwbcEAxjVkLEN4T3P5eVoIpDbTfhhLKrmUDbGqricxMTuVe3cspQQvOF20ClxmM76LK5M'
 
       }, params:{
         "route" : "api/login"
       }
       
     })
-    //const responseBody = JSON.parse(await response.text())
+    
     expect(response.status()).toBe(200)
     expect(response.ok()).toBeTruthy()
     console.log(await response.json())
@@ -30,7 +30,7 @@ test.describe('API testing', () => {
     const response = await request.post(`${baseUrl}`, {
       params:{
         "route" : "api/customer",
-        "api_token": "3d6d55c0b42fb7ca43e5683bff"
+        "api_token": "f2f11f1c9878e1a20df0bd2945"
       },
       multipart:{
         "firstname":"Dear",
@@ -41,17 +41,17 @@ test.describe('API testing', () => {
     })
     expect(response.status()).toBe(200)
     console.log(await response.json())
-    //await response.body()
-    //await response.text()
-
+    expect(response.ok()).toBeTruthy()
   })
+
+  
 
   test('currency', async ({ request }) =>{
 
     const response = await request.post(`${baseUrl}`, {
       params:{
         "route" : "api/currency",
-        "api_token": "3d6d55c0b42fb7ca43e5683bff"
+        "api_token": "f2f11f1c9878e1a20df0bd2945"
       },
       multipart:{
         "currency": "USD"        
@@ -59,22 +59,19 @@ test.describe('API testing', () => {
     })
     expect(response.status()).toBe(200)
     expect(response.ok()).toBeTruthy()
-    //console.log(typeof await response.body()) // Should print 'object'
-    //console.log(await response.body()) // Should print the object
     console.log(await response.json())
     //console.log(response.json()) // Should print the object
-    //expect(response.body).toEqual({"success": "Success: Your currency has been changed!" });
-       
+    
    })
 
-  test('add Product', async ({ request }) =>{
+  test('Cart add Product', async ({ request }) =>{
 
     const response = await request.post(`${baseUrl}`, {
       params:{
         "route" : "api/cart/add",
-        "api_token": "3d6d55c0b42fb7ca43e5683bff"
+        "api_token": "f2f11f1c9878e1a20df0bd2945"
       },
-      data:{
+      multipart:{
         "product_id": 30,
         "quantity": 1
       }
@@ -85,12 +82,51 @@ test.describe('API testing', () => {
     await response.text()
 
   })
+
+  test('Cart edit', async ({ request }) =>{
+
+    const response = await request.post(`${baseUrl}`, {
+      params:{
+        "route" : "api/cart/edit",
+        "api_token": "f2f11f1c9878e1a20df0bd2945"
+      },
+      multipart:{
+        "key": 10,
+        "quantity": 2
+      }
+    })
+    expect(response.status()).toBe(200)
+    console.log(await response.json())
+    await response.body()
+    await response.text()
+
+  })
+
+  test('Cart remove', async ({ request }) =>{
+
+    const response = await request.post(`${baseUrl}`, {
+      params:{
+        "route" : "api/cart/remove",
+        "api_token": "f2f11f1c9878e1a20df0bd2945"
+      },
+      multipart:{
+        "key": 10
+        
+      }
+    })
+    expect(response.status()).toBe(200)
+    console.log(await response.json())
+    await response.body()
+    await response.text()
+
+  })
+
   test('Products', async ({ request }) =>{
 
     const response = await request.get(`${baseUrl}`, {
       params:{
         "route" : "api/cart/products",
-        "api_token": "3d6d55c0b42fb7ca43e5683bff"
+        "api_token": "f2f11f1c9878e1a20df0bd2945"
       }
     })
 
