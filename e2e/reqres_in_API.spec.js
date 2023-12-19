@@ -52,7 +52,24 @@ test.describe.parallel('API testing', () => {
     const responseBody = JSON.parse(await response.text())
     expect(response.status()).toBe(200)
     expect(responseBody.token).toBeTruthy()
+    expect(response).toBeJson();
+    expect(response.responseTime).toBeLessThan(400)
+    expect(response.headers()).toHaveProperty("Content-Type")
+    expect(response.headers().get("Content-Type")).toBe("application/json")
+    expect(response.headers()).toHaveProperty("Connection")
+    expect(response.headers().get("Connection")).toBe("keep-alive")
+
+    const jsonData = response.json();
+    expect(jsonData.success).toBe("Success: You have modified your shopping cart!");
   }
   )
 })
+
+
+
+
+
+
+
+
 
