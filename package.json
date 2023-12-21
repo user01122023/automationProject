@@ -8,8 +8,8 @@
     "playwright-dev": "SET process.env.TEST_ENV=dev && playwright test --headed",
     "playwright-prod": "SET process.env.TEST_ENV=prod && playwright test --headed",
     "playwright": "npx playwright test --headed",
-    "allure:report":"npx allure generate ./allure-results --clean",
-    "allure:open":"npx allure open ./allure-report"
+    "allure:report": "npx allure generate ./allure-results --clean",
+    "allure:open": "npx allure open ./allure-report"
   },
   "repository": {
     "type": "git",
@@ -24,9 +24,9 @@
   "devDependencies": {
     "@playwright/test": "^1.40.1",
     "@types/node": "^20.10.4",
-    "chai-json-schema-ajv": "^5.2.4",
     "allure-commandline": "^2.25.0",
     "allure-playwright": "^2.9.2",
+    "chai-json-schema-ajv": "^5.2.4",
     "prettier": "^3.1.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.3.2"
