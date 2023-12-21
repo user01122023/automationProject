@@ -47,15 +47,15 @@ Run a single test file: npx playwright test tests/account.spec.ts
 Run tests in interactive UI mode, with a built-in watch mode (Preview): npx playwright test --ui
 
 ### Framework consists from next directories:
-/data - login payload(env,key)
-/schemas - order_info_schema, shoppingcart_schema - json schemas
-/tests - contain tests for each endpoint
-/tests/utils - reusable code for tests
-.env - dev and prod enviroments
-/allure-results, playwright-report - - reports
-playwright.config.js - configuration for Playwright
-/tests/DataBase.js - connection with MySQL Database
-/tests/account.spec.js - Endpoints for OpenCart Store (eurosmeta.com) connected to database.
+#/data - login payload(env,key)
+#/schemas - order_info_schema, shoppingcart_schema - json schemas
+#/tests - contain tests for each endpoint
+#/tests/utils - reusable code for tests
+#.env - dev and prod enviroments
+#/allure-results, playwright-report - - reports
+#playwright.config.js - configuration for Playwright
+#/tests/DataBase.js - connection with MySQL Database
+#/tests/account.spec.js - Endpoints for OpenCart Store (eurosmeta.com) connected to database.
 
 ### Assertions:
 In Playwright, you can use the expect function to perform assertions. Here's how you can transform the above Chai assertions to Playwright:
