@@ -82,7 +82,7 @@ test.describe('API testing', () => {
     expect(response.ok()).toBeTruthy();
       
   })
-  test.only('checkout/cart/add', async ({ request }) =>{
+  test('checkout/cart/add', async ({ request }) =>{
 
     const response = await request.post(`${baseUrl}`, {
       params:{
