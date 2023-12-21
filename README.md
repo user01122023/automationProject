@@ -47,48 +47,48 @@ Run a single test file: npx playwright test tests/account.spec.ts
 Run tests in interactive UI mode, with a built-in watch mode (Preview): npx playwright test --ui
 
 ### Framework consists from next directories:
-#/data - login payload(env,key)
-#/schemas - order_info_schema, shoppingcart_schema - json schemas
-#/tests - contain tests for each endpoint
-#/tests/utils - reusable code for tests
-#.env - dev and prod enviroments
-#/allure-results, playwright-report - - reports
-#playwright.config.js - configuration for Playwright
-#/tests/DataBase.js - connection with MySQL Database
-#/tests/account.spec.js - Endpoints for OpenCart Store (eurosmeta.com) connected to database.
+#/data - login payload(env,key)  
+#/schemas - order_info_schema, shoppingcart_schema - json schemas  
+#/tests - contain tests for each endpoint  
+#/tests/utils - reusable code for tests  
+#.env - dev and prod enviroments  
+#/allure-results, playwright-report - - reports  
+#playwright.config.js - configuration for Playwright  
+#/tests/DataBase.js - connection with MySQL Database  
+#/tests/account.spec.js - Endpoints for OpenCart Store (eurosmeta.com) connected to database.  
 
 ### Assertions:
 In Playwright, you can use the expect function to perform assertions. Here's how you can transform the above Chai assertions to Playwright:
 const { expect } = require('playwright')
 
-await expect(page).toEqual(expected)
-await expect(page).toStrictEqual(expected)
-await expect(page).toDeepEqual(expected)
-await expect(page).toBeTrue(val)
-await expect(page).toBeFalse(val)
-await expect(page).toBeNull(val)
-await expect(page).toNotBeNull(val)
-await expect(page).toBeUndefined(val)
-await expect(page).toBeDefined(val)
-await expect(page).toBeFunction(val)
-await expect(page).toBeObject(val)
-await expect(page).toBeArray(val)
-await expect(page).toBeString(val)
-await expect(page).toBeNumber(val)
-await expect(page).toBeBoolean(val)
-await expect(page).toBeInstanceOf(val, RegExp)
-await expect(page).toContain(val, a)
-await expect(page).toMatch(val, /regexp/)
-await expect(page).toHaveProperty(obj, 'tea')
-await expect(page).toHaveDeepProperty(obj, 'tea.green')
-await expect(page).toHaveProperty(person, 'name', 'John')
-await expect(page).toHaveDeepProperty(post, 'author.name', 'John')
-await expect(page).toHaveLength(object, 3)
-await expect(page).toThrow(function() { ... })
-await expect(page).toThrow(function() { ... }, /reference error/)
-await expect(page).toNotThrow()
-await expect(page).toBeLessThan(1, 2)
-await expect(page).toBeCloseTo(actual, expected)
+await expect(page).toEqual(expected)  
+await expect(page).toStrictEqual(expected)  
+await expect(page).toDeepEqual(expected)  
+await expect(page).toBeTrue(val)  
+await expect(page).toBeFalse(val)  
+await expect(page).toBeNull(val)  
+await expect(page).toNotBeNull(val)  
+await expect(page).toBeUndefined(val)  
+await expect(page).toBeDefined(val)  
+await expect(page).toBeFunction(val)  
+await expect(page).toBeObject(val)  
+await expect(page).toBeArray(val)  
+await expect(page).toBeString(val)  
+await expect(page).toBeNumber(val)  
+await expect(page).toBeBoolean(val)  
+await expect(page).toBeInstanceOf(val, RegExp)  
+await expect(page).toContain(val, a)  
+await expect(page).toMatch(val, /regexp/)  
+await expect(page).toHaveProperty(obj, 'tea')  
+await expect(page).toHaveDeepProperty(obj, 'tea.green')  
+await expect(page).toHaveProperty(person, 'name', 'John')  
+await expect(page).toHaveDeepProperty(post, 'author.name', 'John')  
+await expect(page).toHaveLength(object, 3)  
+await expect(page).toThrow(function() { ... })  
+await expect(page).toThrow(function() { ... }, /reference error/)  
+await expect(page).toNotThrow()  
+await expect(page).toBeLessThan(1, 2)  
+await expect(page).toBeCloseTo(actual, expected)  
 
 
 
