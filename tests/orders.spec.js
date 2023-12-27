@@ -27,7 +27,6 @@ test('Schould get order by id', async () => {
 
     expect(order_response.order.order_id).to.include(order_id);
     expect(order_response).to.be.jsonSchema(order_info_schema);
-    console.log(order_response);
 })
 
 test('Should create the order', async () => {

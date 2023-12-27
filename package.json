@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "format": "prettier --config .prettierrc tests/*.js --write",
-    "playwright-dev": "SET process.env.TEST_ENV=dev && playwright test --headed",
-    "playwright-prod": "SET process.env.TEST_ENV=prod && playwright test --headed",
+    "playwright-prod": "SET process.env.TEST_ENV=production && npx playwright test --headed",
     "playwright": "npx playwright test --headed",
     "allure:report": "npx allure generate ./allure-results --clean",
     "allure:open": "npx allure open ./allure-report"

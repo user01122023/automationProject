@@ -78,7 +78,6 @@ async getCartContent(token) {
         }
     });
     const cart_content_response = await response.json();
-    console.log(cart_content_response);
     return cart_content_response
 }
 

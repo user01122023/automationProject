@@ -65,7 +65,7 @@ test.describe('API testing', () => {
     
     expect(response.status()).toBe(200)
     expect(response.ok()).toBeTruthy()
-    console.log(response.json())
+   console.log(await response.text())
   })
   test('account/password', async ({ request }) => {
     const response = await request.post(`${baseUrl}`, {
@@ -77,7 +77,7 @@ test.describe('API testing', () => {
         "confirm": "12345",
       },
     });
-    console.log(response.json());
+    //console.log(response.json());
     expect(response.status()).toBe(200);
     expect(response.ok()).toBeTruthy();
       
