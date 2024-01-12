@@ -7,20 +7,19 @@
 
 import { test, expect } from '@playwright/test'
 
-test.describe('API testing', () => {
-  const baseUrl = 'https://eurosmeta.com/index.php'
+
   
     test('account/register', async ({ request }) =>{
-
+    const baseUrl = 'https://eurosmeta.com/index.php'
     const response = await request.post(`${baseUrl}`, {
       params:{
         "route" : "account/register"
       },
       multipart:{
         "customer_group_id": 1,
-        "firstname": "AnastasiaTest1",
-        "lastname": "Test1",
-        "email": "test1@test.com",
+        "firstname": "AnastasiaTest10",
+        "lastname": "Test10",
+        "email": "test10@test.com",
         "telephone": "98765643432",
         "password": "12345",
         "confirm": "12345",
@@ -32,7 +31,12 @@ test.describe('API testing', () => {
     expect(response.ok()).toBeTruthy()
     //console.log(await response.json())
   })
-  test('account/login', async ({ request }) =>{
+  
+
+
+
+/* 
+test('account/login', async ({ request }) =>{
 
     const response = await request.post(`${baseUrl}`, {
       params:{
@@ -99,6 +103,4 @@ test.describe('API testing', () => {
     console.log(await response.json())
     
   })
-  
-
-})
+*/
