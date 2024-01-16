@@ -123,7 +123,7 @@ async addVoucher(token, voucher_payload) {
     const response = await this.api_request.post(this.baseURL, {
         multipart: voucher_payload,
         params: {
-            route: 'api/voucher',
+            route: 'api/voucher/add',
             api_token: token
         }
     });
@@ -135,7 +135,7 @@ async setShippingAddress(token, address_payload) {
     const response = await this.api_request.post(this.baseURL, {
         multipart: address_payload,
         params: {
-            route: 'api/address',
+            route: 'api/shipping/address',
             api_token: token
         }
     });
@@ -147,7 +147,7 @@ async setShippingAddress(token, address_payload) {
 async getShippingMethods(token) {
     const response = await this.api_request.get(this.baseURL, {
         params: {
-            route: 'api/shipping',
+            route: 'api/shipping/methods',
             api_token: token
         }
     });
@@ -179,6 +179,16 @@ async createOrder(token, order_payload) {
     return order_response
 }
 
+async registerUser(user_payload) {
+    const response = await this.api_request.post(this.baseURL, {
+        multipart: user_payload,
+        params: {
+            route: 'api/register'
+        }
+    });
+    const register_response = await response.json();
+    return register_response
+}
 
 }
 

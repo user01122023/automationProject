@@ -9,7 +9,8 @@
     "playwright-prod": "SET process.env.TEST_ENV=prod && playwright test --headed",
     "playwright": "npx playwright test --headed",
     "allure:report": "npx allure generate ./allure-results --clean",
-    "allure:open": "npx allure open ./allure-report"
+    "allure:open": "npx allure open ./allure-report",
+    "allure_clean": "rm -rf allure-report && rm -rf allure-results"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/user01122023/automationProject#readme",
   "devDependencies": {
+    "@faker-js/faker": "^8.3.1",
     "@playwright/test": "^1.40.1",
     "@types/node": "^20.10.4",
     "allure-commandline": "^2.25.0",

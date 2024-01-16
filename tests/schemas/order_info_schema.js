@@ -15,7 +15,7 @@ const order_info_schema = {
               "lastname": { "type": "string" },
               "email": { "type": "string" },
               "telephone": { "type": "string" },
-              "custom_field": { "type": "array" },
+              "custom_field": { "type": ["null", "object"] },
               "payment_firstname": { "type": "string" },
               "payment_lastname": { "type": "string" },
               "payment_company": { "type": "string" },

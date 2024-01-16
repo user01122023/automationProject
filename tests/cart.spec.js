@@ -3,13 +3,15 @@ const { expect } = require('chai');
 const chai = require('chai');
 require('dotenv').config();
 const {APIutils} = require('./utils/APIutils');
-const {login_payload} = require('../data/login');
+const {login_payload} = require('./data/login');
 chai.use(require('chai-json-schema-ajv'));
-const {shoppingcart_schema} = require('../schemas/shoppingcart_schema');
+const {shoppingcart_schema} = require('./schemas/shoppingcart_schema');
 
 let token;
 let api_request;
 let apiUtils;
+
+const success_cart_responce = {'success': 'Success: You have modified your shopping cart!'};
 
 test.beforeAll('Should get token', async ({playwright, baseURL}) => {
     
@@ -26,7 +28,7 @@ test('Should add an item to a cart', async () => {
     };
     const add_item_response = await apiUtils.add_item_to_cart(token, product_payload);
     
-    expect(add_item_response).to.include({'success': 'Success: You have modified your shopping cart!'});
+    expect(add_item_response).to.include(success_cart_responce);
     console.log(add_item_response);
   
 
@@ -39,7 +41,7 @@ test('Should edit the cart', async () => {
     };
     const edit_item_response = await apiUtils.edit_cart(token, product_payload)
 
-    expect(edit_item_response).to.include({"success": "Success: You have modified your shopping cart!"})
+    expect(edit_item_response).to.include(success_cart_responce)
     console.log(edit_item_response);
 
 })
@@ -50,7 +52,7 @@ test('Should remove an item from the cart', async () => {
     };
     const remove_item_response = await apiUtils.remove_item_from_cart(token, product_payload);
 
-    expect(remove_item_response).to.include({"success": "Success: You have modified your shopping cart!"})
+    expect(remove_item_response).to.include(success_cart_responce)
 
 })
 

@@ -3,13 +3,15 @@ const { expect } = require('chai');
 const chai = require('chai');
 require('dotenv').config();
 const {APIutils} = require('./utils/APIutils');
-const {login_payload} = require('../data/login');
+const {login_payload} = require('./data/login');
 chai.use(require('chai-json-schema-ajv'));
-const {shoppingcart_schema} = require('../schemas/shoppingcart_schema');
+const {shoppingcart_schema} = require('./schemas/shoppingcart_schema');
 
 let token;
 let api_request;
 let apiUtils;
+
+const success_customer_responce = {'success': 'You have successfully modified customers'}
 
 test.beforeAll('Should get token', async ({playwright, baseURL}) => {
     
@@ -29,7 +31,7 @@ test('Should create a customer', async () => {
 
     const customer_response = await apiUtils.addCustomer(token, customer_payload)
 
-    expect(customer_response).to.include({'success': 'You have successfully modified customers'})
+    expect(customer_response).to.include(success_customer_responce)
     console.log(customer_response);
 })
 

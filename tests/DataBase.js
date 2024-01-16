@@ -39,4 +39,9 @@ async function connectToDatabase(page) {
   }
 }
 
+
 setup();
+
+module.exports = {
+  setup
+}
