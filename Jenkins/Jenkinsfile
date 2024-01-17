@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    stages{
+        stage('Checkout') {
+            steps {
+                checkout([ 
+                    $class: 'GitSCM', 
+                    branches: [[name: '*/master']],
+                    userRemoteConfigs: [[url: 'https://github.com/user01122023/automationProject.git']]
+                ]);
+            }
+        }
+
+        stage('Installing packages') {
+            steps {
+                bat 'npm install'
+            }
+        }
+
+        stage('Running tests') {
+            steps{
+                script{
+                    bat("npm run playwright")
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+        }
+    }
+
+}
