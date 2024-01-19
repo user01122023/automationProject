@@ -6,7 +6,7 @@ pipeline {
             steps {
                 checkout([ 
                     $class: 'GitSCM', 
-                    branches: [[name: '*/master']],
+                    branches: [[name: '*/DataBase']],
                     userRemoteConfigs: [[url: 'https://github.com/user01122023/automationProject.git']]
                 ]);
             }
