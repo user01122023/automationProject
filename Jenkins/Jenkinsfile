@@ -18,13 +18,13 @@ pipeline {
             }
         }
 
-        stage('Delete allure old reports') {
-            steps{
-                script{
-                    bat("rd allure-results /s/q && rd allure-report /s/q")
-                }
-            }
-        }
+        // stage('Delete allure old reports') {
+        //     steps{
+        //         script{
+        //             bat("rd allure-results /s/q && rd allure-report /s/q")
+        //         }
+        //     }
+        // }
 
         stage('Running tests') {
             steps{
