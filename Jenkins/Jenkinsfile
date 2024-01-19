@@ -18,18 +18,18 @@ pipeline {
             }
         }
 
-        stage('Running tests') {
-            steps{
-                script{
-                    bat("npm run playwright")
-                }
-            }
-        }
-
         stage('Delete allure old reports') {
             steps{
                 script{
                     bat("rd allure-results /s/q && rd allure-report /s/q")
+                }
+            }
+        }
+
+        stage('Running tests') {
+            steps{
+                script{
+                    bat("npm run playwright")
                 }
             }
         }
